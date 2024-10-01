@@ -1,0 +1,65 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <style>  
+        body {  
+            font-family: 'Perfect DOS VGA 437', 'Fixedsys', monospace;  
+            font-size: 16pt;  
+            letter-spacing: -1px;  
+            line-height: 16px;  
+            background-color: black; /* DOS-like background color */  
+            color: lime; /* DOS-like font color */  
+            white-space: pre-wrap; /* Preserve white space and allow line breaks */  
+        }  
+
+        .cursor {  
+            display: inline-block;  
+            width: 10px;  
+            height: 20px;  
+            background-color: lime; /* Cursor color */  
+            animation: blink 1s step-start infinite; /* Blinking effect */  
+        }  
+
+        @keyframes blink {  
+            0%, 100% { opacity: 1; }  
+            50% { opacity: 0; }  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div id="typewriter"></div>  
+    <div class="cursor"></div>  
+    
+    <script>  
+        const text = "I am Naser Rezaei,\n\
+a simple software engineer.\n\
+I know: C++, C, Qt, Python, Linux, Databases.\n\
+I have experience: CMake, GTest, Socket programming,\n\
+multithreading and concurrency, STL, CAN-BUS, GIT,\n\
+IPP, Message Queues, CI/CD.\n\
+\n\
+Here is my resume : https://github.com/thenaserov/Resume/blob/main/NaserRezaei-resume.pdf";  
+        
+        let index = 0;  
+
+        function type() {  
+            if (index < text.length) {  
+                const char = text.charAt(index);  
+                // Check if the character is a newline  
+                if (char === "\n") {  
+                    document.getElementById("typewriter").innerHTML += "<br>";  
+                } else {  
+                    document.getElementById("typewriter").innerHTML += char;  
+                }  
+                index++;  
+                setTimeout(type, 5); // Adjust typing speed here (100ms)  
+            }  
+        }  
+
+        // Start the typewriter effect  
+        type();  
+    </script>  
+</body>  
+</html>
