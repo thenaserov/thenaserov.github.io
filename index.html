@@ -11,6 +11,7 @@
             line-height: 16px;  
             background-color: black; /* DOS-like background color */  
             color: lime; /* DOS-like font color */  
+            text-align: center; /* Center the text */  
             white-space: nowrap; /* Prevent line breaks */  
         }  
 
@@ -33,14 +34,23 @@
     <div class="cursor"></div>  
     
     <script>  
-        const text = "I am Naser Rezaei, a simple software engineer.";  
+        const text = `  
+        I am Naser Rezaei,  
+        a simple software engineer.  
+        I know: C++, C, Qt, Python, Linux, Databases.  
+        I have experience: CMake, GTest, Socket programming,  
+        multithreading and concurrency, STL, CAN-BUS, GIT,  
+        IPP, Message Queues, CI/CD.  
+        <br>  
+        <a href="https://github.com/thenaserov/Resume/blob/main/NaserRezaei-resume.pdf" style="color: lime;">Here</a> is my resume!  
+        `;  
         let index = 0;  
 
         function type() {  
             if (index < text.length) {  
                 document.getElementById("typewriter").innerHTML += text.charAt(index);  
                 index++;  
-                setTimeout(type, 100); // Adjust typing speed here (100ms)  
+                setTimeout(type, 50); // Adjust typing speed here (50ms)  
             }  
         }  
 
