@@ -1,17 +1,9 @@
 <!DOCTYPE html>  
-<html>  
+<html lang="en">  
 <head>  
-    <style>
-        @font-face
-{
-    font-family: 'Perfect DOS VGA 437';
-    src: url('http://www.braindamage.vg/wp-content/themes/braindamage/dosfont.eot');
-}
-@font-face
-{
-    font-family: 'Perfect DOS VGA 437';
-    src: url('http://www.braindamage.vg/wp-content/themes/braindamage/dosfont.svg#dos') format("svg"), url('http://www.braindamage.vg/wp-content/themes/braindamage/dosfont.ttf') format ('truetype');
-}
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <style>  
         body {  
             font-family: 'Perfect DOS VGA 437', 'Fixedsys', monospace;  
             font-size: 12pt;  
@@ -19,17 +11,41 @@
             line-height: 16px;  
             background-color: black; /* DOS-like background color */  
             color: lime; /* DOS-like font color */  
-            text-align: center; /* Center the text */  
+            white-space: nowrap; /* Prevent line breaks */  
+        }  
+
+        .cursor {  
+            display: inline-block;  
+            width: 10px;  
+            height: 20px;  
+            background-color: lime; /* Cursor color */  
+            animation: blink 1s step-start infinite; /* Blinking effect */  
+        }  
+
+        @keyframes blink {  
+            0%, 100% { opacity: 1; }  
+            50% { opacity: 0; }  
         }  
     </style>  
 </head>  
 <body>  
-    I am Naser Rezaei <br>  
-    a simple software engineer <br>  
-    I know: C++, C, Qt, Python, Linux, Databases <br>  
-    I have experience: CMake, GTest, Socket programming, <br>   
-    multithreading and concurrency, STL, CAN-BUS, GIT, IPP, Message Queues, CI/CD  
-    <br>  
-    <a href="https://github.com/thenaserov/Resume/blob/main/NaserRezaei-resume.pdf" style="color: lime;">Here</a> is my resume!  
+    <div id="typewriter"></div>  
+    <div class="cursor"></div>  
+    
+    <script>  
+        const text = "I am Naser Rezaei, a simple software engineer.";  
+        let index = 0;  
+
+        function type() {  
+            if (index < text.length) {  
+                document.getElementById("typewriter").innerHTML += text.charAt(index);  
+                index++;  
+                setTimeout(type, 100); // Adjust typing speed here (100ms)  
+            }  
+        }  
+
+        // Start the typewriter effect  
+        type();  
+    </script>  
 </body>  
 </html>
