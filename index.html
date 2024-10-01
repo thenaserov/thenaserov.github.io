@@ -12,7 +12,7 @@
             background-color: black; /* DOS-like background color */  
             color: lime; /* DOS-like font color */  
             text-align: center; /* Center the text */  
-            white-space: nowrap; /* Prevent line breaks */  
+            white-space: pre-wrap; /* Preserve white space and allow line breaks */  
         }  
 
         .cursor {  
@@ -34,23 +34,28 @@
     <div class="cursor"></div>  
     
     <script>  
-        const text = `  
-        I am Naser Rezaei,  
-        a simple software engineer.  
-        I know: C++, C, Qt, Python, Linux, Databases.  
-        I have experience: CMake, GTest, Socket programming,  
-        multithreading and concurrency, STL, CAN-BUS, GIT,  
-        IPP, Message Queues, CI/CD.  
-        <br>  
-        <a href="https://github.com/thenaserov/Resume/blob/main/NaserRezaei-resume.pdf" style="color: lime;">Here</a> is my resume!  
-        `;  
+        const text = "I am Naser Rezaei,\n\
+a simple software engineer.\n\
+I know: C++, C, Qt, Python, Linux, Databases.\n\
+I have experience: CMake, GTest, Socket programming,\n\
+multithreading and concurrency, STL, CAN-BUS, GIT,\n\
+IPP, Message Queues, CI/CD.\n\
+\n\
+<a href=\"https://github.com/thenaserov/Resume/blob/main/NaserRezaei-resume.pdf\" style=\"color: lime;\">Here</a> is my resume!";  
+        
         let index = 0;  
 
         function type() {  
             if (index < text.length) {  
-                document.getElementById("typewriter").innerHTML += text.charAt(index);  
+                const char = text.charAt(index);  
+                // Check if the character is a newline  
+                if (char === "\n") {  
+                    document.getElementById("typewriter").innerHTML += "<br>";  
+                } else {  
+                    document.getElementById("typewriter").innerHTML += char;  
+                }  
                 index++;  
-                setTimeout(type, 50); // Adjust typing speed here (50ms)  
+                setTimeout(type, 100); // Adjust typing speed here (100ms)  
             }  
         }  
 
